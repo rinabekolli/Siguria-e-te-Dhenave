@@ -47,3 +47,22 @@ public class Main {
        try {
            File file = new File("/Users/qendr/OneDrive/Desktop/Siguri_Projekt2/book.txt");
            Scanner fileReader = new Scanner(file);
+           while (fileReader.hasNextLine()) {
+                 String text = fileReader.nextLine().toLowerCase();
+                 String[] arrayOfText = text.split(" ");
+                 int count = 1;
+                 for (int i = 0; i < arrayOfText.length; i++, count++) {
+                     addNumber += (arrayOfText[i] + count + " ");
+                 }
+             }
+             fileReader.close();
+
+         } catch (FileNotFoundException e) {
+             System.err.println("\nNdodhi një gabim. Sistemi nuk mund ta gjejë skedarin e specifikuar.\n");
+             e.printStackTrace();
+             System.exit(1);
+         }
+         return addNumber;
+
+  }
+  }
