@@ -19,4 +19,25 @@ public class Encrypt {
 	            for (int i = 0; i < splitedKey.length; i++) {
 	                getLetters.append(splitedKey[i].charAt(0));
 	            }
+			
+	            ArrayList<Integer> tempciphertext = new ArrayList<>();
+	            StringBuilder ciphertext = new StringBuilder();
+	            for (int i = 0; i < plaintextArray.length; i++) {
+	                for (int j = 0; j < getLetters.length(); j++) {
+	                    if (plaintextArray[i] == getLetters.charAt(j)) {
+	                        tempciphertext.add(j + 1);
+	                    }
+	                }
+	                int index = (int) (Math.random() * tempciphertext.size());
+	                ciphertext.append(tempciphertext.get(index));
+	                ciphertext.append(" ");
+	                tempciphertext.clear();
+	            }
+	            return "\nTeksti i enkriptuar: " + ciphertext;
+	        } else {
+	            return "\nJu nuk mund të enkriptoni karaktere speciale!";
+	        }
+	    }
+	
+	}
 
